@@ -1,0 +1,533 @@
+/* Reset and Basics */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #e6e6e6;
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    background: #0f1419;
+}
+
+/* Cosmic Background with Blooming Fireflies */
+.cosmic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background: radial-gradient(circle at center, #1a2a44 0%, #0f1419 70%);
+    opacity: 0.9;
+    z-index: -3; /* Ensure fireflies are above this */
+    transform: translateY(0);
+    transition: transform 0.05s linear;
+}
+
+.particle-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Above cosmic-bg */
+    pointer-events: none;
+    display: block; /* Ensures it is not hidden */
+}
+
+
+/* Firefly Particles (Increased Quantity and Speed) */
+.particle-layer::before,
+.particle-layer::after,
+.particle-layer::nth-of-type(1n+3)::before,
+.particle-layer::nth-of-type(1n+3)::after,
+.particle-layer::nth-of-type(1n+5)::before,
+.particle-layer::nth-of-type(1n+5)::after,
+.particle-layer::nth-of-type(1n+7)::before,
+.particle-layer::nth-of-type(1n+7)::after,
+.particle-layer::nth-of-type(1n+9)::before,
+.particle-layer::nth-of-type(1n+9)::after,
+.particle-layer::nth-of-type(1n+11)::before,
+.particle-layer::nth-of-type(1n+11)::after,
+.particle-layer::nth-of-type(1n+13)::before,
+.particle-layer::nth-of-type(1n+13)::after,
+.particle-layer::nth-of-type(1n+15)::before,
+.particle-layer::nth-of-type(1n+15)::after,
+.particle-layer::nth-of-type(1n+17)::before,
+.particle-layer::nth-of-type(1n+17)::after,
+.particle-layer::nth-of-type(1n+19)::before,
+.particle-layer::nth-of-type(1n+19)::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8; /* Brighter for visibility */
+    box-shadow: 0 0 25px rgba(52, 199, 89, 0.6); /* Larger, brighter glow */
+    animation: firefly 2.5s infinite ease-in-out; /* Faster speed (2.5s) */
+}
+
+/* Large Fireflies */
+.particle-layer::before {
+    width: 8px;
+    height: 8px;
+    background: #34C759;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.particle-layer::after {
+    width: 7px;
+    height: 7px;
+    background: #34C759;
+    top: 85%;
+    left: 85%;
+    animation-delay: 0.5s;
+}
+
+/* Medium Fireflies */
+.particle-layer::nth-of-type(1n+3)::before {
+    width: 6px;
+    height: 6px;
+    background: #52b788;
+    top: 25%;
+    left: 70%;
+    animation-delay: 0.2s;
+}
+
+.particle-layer::nth-of-type(1n+3)::after {
+    width: 6px;
+    height: 6px;
+    background: #52b788;
+    top: 55%;
+    left: 10%;
+    animation-delay: 0.7s;
+}
+
+/* Small Fireflies */
+.particle-layer::nth-of-type(1n+5)::before {
+    width: 5px;
+    height: 5px;
+    background: #34C759;
+    top: 35%;
+    left: 30%;
+    animation-delay: 0.4s;
+}
+
+.particle-layer::nth-of-type(1n+5)::after {
+    width: 5px;
+    height: 5px;
+    background: #34C759;
+    top: 70%;
+    left: 90%;
+    animation-delay: 1s;
+}
+
+/* Tiny Fireflies */
+.particle-layer::nth-of-type(1n+7)::before {
+    width: 4px;
+    height: 4px;
+    background: #52b788;
+    top: 15%;
+    left: 80%;
+    animation-delay: 0.6s;
+}
+
+.particle-layer::nth-of-type(1n+7)::after {
+    width: 4px;
+    height: 4px;
+    background: #52b788;
+    top: 90%;
+    left: 20%;
+    animation-delay: 1.2s;
+}
+
+/* Extra Small Fireflies */
+.particle-layer::nth-of-type(1n+9)::before {
+    width: 3px;
+    height: 3px;
+    background: #34C759;
+    top: 5%;
+    left: 50%;
+    animation-delay: 0.3s;
+}
+
+.particle-layer::nth-of-type(1n+9)::after {
+    width: 3px;
+    height: 3px;
+    background: #34C759;
+    top: 95%;
+    left: 40%;
+    animation-delay: 1.4s;
+}
+
+/* Micro Fireflies */
+.particle-layer::nth-of-type(1n+11)::before {
+    width: 2px;
+    height: 2px;
+    background: #52b788;
+    top: 45%;
+    left: 25%;
+    animation-delay: 0.8s;
+}
+
+.particle-layer::nth-of-type(1n+11)::after {
+    width: 2px;
+    height: 2px;
+    background: #52b788;
+    top: 60%;
+    left: 75%;
+    animation-delay: 1.6s;
+}
+
+/* Extra Micro Fireflies */
+.particle-layer::nth-of-type(1n+13)::before {
+    width: 2px;
+    height: 2px;
+    background: #34C759;
+    top: 20%;
+    left: 65%;
+    animation-delay: 0.9s;
+}
+
+.particle-layer::nth-of-type(1n+13)::after {
+    width: 2px;
+    height: 2px;
+    background: #34C759;
+    top: 75%;
+    left: 35%;
+    animation-delay: 1.8s;
+}
+
+/* Tiny Micro Fireflies */
+.particle-layer::nth-of-type(1n+15)::before {
+    width: 1px;
+    height: 1px;
+    background: #52b788;
+    top: 30%;
+    left: 45%;
+    animation-delay: 0.5s;
+}
+
+.particle-layer::nth-of-type(1n+15)::after {
+    width: 1px;
+    height: 1px;
+    background: #52b788;
+    top: 65%;
+    left: 55%;
+    animation-delay: 2s;
+}
+
+/* Final Micro Fireflies */
+.particle-layer::nth-of-type(1n+17)::before {
+    width: 1px;
+    height: 1px;
+    background: #34C759;
+    top: 12%;
+    left: 88%;
+    animation-delay: 0.7s;
+}
+
+.particle-layer::nth-of-type(1n+17)::after {
+    width: 1px;
+    height: 1px;
+    background: #34C759;
+    top: 88%;
+    left: 12%;
+    animation-delay: 1.9s;
+}
+
+/* Extra Tiny Fireflies */
+.particle-layer::nth-of-type(1n+19)::before {
+    width: 1px;
+    height: 1px;
+    background: #52b788;
+    top: 50%;
+    left: 70%;
+    animation-delay: 1.1s;
+}
+
+.particle-layer::nth-of-type(1n+19)::after {
+    width: 1px;
+    height: 1px;
+    background: #52b788;
+    top: 40%;
+    left: 30%;
+    animation-delay: 2.2s;
+}
+
+/* Firefly Animation (Faster, More Dynamic) */
+@keyframes firefly {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.8; box-shadow: 0 0 15px rgba(52, 199, 89, 0.5); }
+    25% { transform: translate(40px, -40px) scale(1.3) rotate(20deg); opacity: 1; box-shadow: 0 0 30px rgba(52, 199, 89, 0.7); }
+    50% { transform: translate(-40px, 40px) scale(1.1) rotate(-15deg); opacity: 0.9; box-shadow: 0 0 20px rgba(52, 199, 89, 0.6); }
+    75% { transform: translate(20px, -20px) scale(1.2) rotate(10deg); opacity: 0.95; box-shadow: 0 0 35px rgba(52, 199, 89, 0.8); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.8; box-shadow: 0 0 15px rgba(52, 199, 89, 0.5); }
+}
+
+/* Hero Header */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(52, 199, 89, 0.5);
+    opacity: 0;
+    transform: scale(0.8);
+    animation: bloomIn 2s ease-out forwards;
+}
+
+.hero-content p {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #a0b0b0;
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 2s ease-out 0.5s forwards;
+}
+
+/* Content */
+.content {
+    padding: 10rem 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Moment */
+.moment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    gap: 5rem;
+    opacity: 0;
+    perspective: 1000px;
+}
+
+.moment-media {
+    flex: 1;
+    max-width: 900px;
+    position: relative;
+}
+
+.moment-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(52, 199, 89, 0.3);
+    opacity: 0;
+    transform: scale(0) rotateX(45deg);
+    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.moment-text {
+    flex: 1;
+    max-width: 700px;
+}
+
+.quote {
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #fff;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(52, 199, 89, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: rotateY(45deg) translateZ(-100px);
+    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Visible State */
+.moment.visible {
+    opacity: 1;
+}
+
+.moment.visible .moment-image {
+    opacity: 1;
+    transform: scale(1) rotateX(0);
+    animation: bloomGlow 1.5s ease-out;
+}
+
+.moment.visible .moment-text .quote {
+    opacity: 1;
+    transform: rotateY(0) translateZ(0);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(to top, #0f1419, transparent);
+    color: #a0b0b0;
+    font-size: 1.4rem;
+}
+
+.heart {
+    color: #34C759;
+    font-size: 1.6rem;
+    animation: pulse 2s infinite;
+}
+
+/* Music Button and Controls */
+.music-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: #34C759;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.music-button:hover {
+    background: #2a9d8f;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.music-controls {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background: rgba(15, 20, 25, 0.8);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 1rem;
+    z-index: 1000;
+    display: none; /* Hidden by default, shown when music plays */
+}
+
+.music-controls.active {
+    display: block;
+}
+
+#currentTime, #duration {
+    margin: 0 5px;
+}
+
+#progressBar {
+    width: 150px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Animations */
+@keyframes bloomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bloomGlow {
+    0% { box-shadow: 0 0 0 rgba(52, 199, 89, 0); }
+    50% { box-shadow: 0 0 60px rgba(52, 199, 89, 0.6); }
+    100% { box-shadow: 0 0 50px rgba(52, 199, 89, 0.3); }
+}
+
+@keyframes drift {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .moment {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 5rem 2rem;
+    }
+
+    .moment-media,
+    .moment-text {
+        max-width: 90%;
+    }
+
+    .quote {
+        font-size: 2.2rem;
+    }
+
+    .music-button {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+
+    .music-controls {
+        bottom: 60px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .hero-content p {
+        font-size: 1.6rem;
+    }
+
+    .content {
+        padding: 6rem 1rem;
+    }
+
+    .quote {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .quote {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .music-button {
+        bottom: 5px;
+        right: 5px;
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .music-controls {
+        bottom: 50px;
+        right: 5px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}

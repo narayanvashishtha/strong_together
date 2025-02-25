@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whispers of Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="cosmic-bg" id="cosmic-bg"></div>
+<div class="particle-layer" id="particles"></div>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1>Whispers of Us</h1>
+        <p>A magical thread through time</p>
+    </div>
+</header>
+
+<main class="content">
+    <section class="moment" data-moment="1">
+        <div class="moment-media">
+            <img src="images/photo1.jpeg" alt="Moment 1" class="moment-image">
+        </div>
+        <div class="moment-text">
+            <p class="quote">"Grip achi hai meri, tu dheela bi rakh mai pakad lunga"</p>
+        </div>
+    </section>
+
+    <section class="moment" data-moment="2">
+        <div class="moment-media">
+            <img src="images/photo2.jpeg" alt="Moment 2" class="moment-image">
+        </div>
+        <div class="moment-text">
+            <p class="quote">"Love Fades, Commitment doesn't."</p>
+        </div>
+    </section>
+
+    <section class="moment" data-moment="3">
+        <div class="moment-media">
+            <img src="images/photo3.jpeg" alt="Moment 3" class="moment-image">
+        </div>
+        <div class="moment-text">
+            <p class="quote">"Being around you drives me nuts and not being around you drives me NUTS"</p>
+        </div>
+    </section>
+
+    <section class="moment" data-moment="4">
+        <div class="moment-media">
+            <img src="images/photo4.jpeg" alt="Moment 4" class="moment-image">
+        </div>
+        <div class="moment-text">
+            <p class="quote">"I didn't need anything but then you appeared"</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Conjured with <span class="heart">♥</span> • February 2025</p>
+</footer>
+
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="music/magic-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<button id="musicToggle" class="music-button">Play Music</button>
+<div id="musicControls" class="music-controls">
+    <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+    <input type="range" id="progressBar" min="0" max="100" value="0">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
